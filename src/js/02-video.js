@@ -12,4 +12,12 @@ const onPlayerTimeupdate = event => {
 
 playerEl.on('timeupdate', throttle(onPlayerTimeupdate, 1000));
 
-playerEl.setCurrentTime(localStorage.getItem('videoplayer-current-time' || 0));
+if (localStorage.getItem('videoplayer-current-time')) {
+  console.log(
+    'Current time:',
+    localStorage.getItem('videoplayer-current-time')
+  );
+  playerEl.setCurrentTime(localStorage.getItem('videoplayer-current-time'));
+}
+
+// playerEl.setCurrentTime(localStorage.getItem('videoplayer-current-time') || 0);
